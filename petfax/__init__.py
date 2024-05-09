@@ -12,7 +12,7 @@ def create_app():
         return 'Hello, this is PetFax!!!'
     
     #import pet blueprint
-    from . import pet
+    from .blueprints import pet
 
     #register blueprint
     app.register_blueprint(pet.bp)
