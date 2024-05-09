@@ -7,16 +7,26 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     </head>
     <body>
-        <h1>Welcome to PetFax</h1>
-        <h3>Here are all our cool pets.</h3>
-        {% for pet in pets: %}
-            <h2>{{pet.pet_name}}</h2>
-            <img src="{{pet.pet_photo}}" alt="Photo of {{pet.pet_name}}">
-            <a href="/pets/{{pet.pet_id}}">Click to see more</a>
-        {% endfor %}
+        <div class="container">
+          <h1>Welcome to PetFax</h1>
+          <div class="callout">
+            <h3>Here are all our cool pets.</h3>
+          </div>
+
+          <div class="pets-container">
+            {% for pet in pets: %}
+              <h2>{{pet.pet_name}}</h2>
+              <img src="{{pet.pet_photo}}" alt="Photo of {{pet.pet_name}}">
+              <a href="/pets/{{pet.pet_id}}">Click to see more</a>
+            {% endfor %}
+          </div>
+          <div class="callout">
+            <h3>We would love to know more about pets' fun fact. Please submit some <a href="/pets/new_fun_fact">here</a></h3>
+          </div>
+        </div>
         
         <script src="" async defer></script>
     </body>
