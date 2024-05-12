@@ -10,10 +10,16 @@
         <title>Fun facts!</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     </head>
     <body>
-        <h1>Here are all the fun facts</h1>
+        <div class="container">
+            <h1>Fun facts!</h1>
+            {% for fact in facts %}
+              <h4>Submitted by {{fact.submitter}}</h4>
+              {{fact.fact}}
+            {% endfor %}
+        </div>
         
         <script src="" async defer></script>
     </body>
