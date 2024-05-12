@@ -29,10 +29,17 @@ def index():
       models.db.session.add(new_fact)
       #Commit the database session(insert into database)
       models.db.session.commit()
-      
+
       return redirect('/facts')
     
-    return render_template('facts/index.html', pets = pets)
+    #below is GET request
+    #Query all facts from the database
+    results = models.Fact.query.all()
+    #loop through results to check if the query is successful
+    for result in results:
+      print(result) #we got the output like this <Fact ID#> (This is an object. We can access the attributes of the object like this: result.submitter, result.fact) This for-loop can be deleted.
+
+    return render_template('facts/index.html', facts = results)
 
 #Add a new fun fact(Create)
 @bp.route('/new')
