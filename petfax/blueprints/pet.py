@@ -11,7 +11,7 @@ bp = Blueprint(
     __name__ ,
     #url prefix
     url_prefix='/pets'
-    )
+)
 
 #index route, show all pets(Read)
 @bp.route('/')
